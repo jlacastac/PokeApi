@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "pokemon"
 })
 @Generated("jsonschema2pojo")
-public class Pokemon {
+public class Ability {
 
     @JsonProperty("id")
     private Integer id;
@@ -57,7 +57,7 @@ public class Pokemon {
     /**
      * No args constructor for use in serialization
      */
-    public Pokemon() {
+    public Ability() {
     }
 
     /**
@@ -71,7 +71,7 @@ public class Pokemon {
      * @param flavorTextEntries
      * @param id
      */
-    public Pokemon(Integer id, String name, Boolean isMainSeries, Generation generation, List<Name> names, List<EffectEntry> effectEntries, List<EffectChange> effectChanges, List<FlavorTextEntry> flavorTextEntries, List<Pokemon> pokemons) {
+    public Ability(Integer id, String name, Boolean isMainSeries, Generation generation, List<Name> names, List<VerboseEffect> effectEntries, List<AbilityEffectChange> effectChanges, List<AbilityFlavorText> flavorTextEntries, List<AbilityPokemon> pokemon) {
         super();
         this.id = id;
         this.name = name;
@@ -81,7 +81,7 @@ public class Pokemon {
         this.effectEntries = effectEntries;
         this.effectChanges = effectChanges;
         this.flavorTextEntries = flavorTextEntries;
-        this.pokemons = pokemons;
+        this.pokemon = pokemon;
     }
 
     @JsonProperty("id")
@@ -135,43 +135,43 @@ public class Pokemon {
     }
 
     @JsonProperty("effect_entries")
-    public List<EffectEntry> getEffectEntries() {
+    public List<VerboseEffect> getEffectEntries() {
         return effectEntries;
     }
 
     @JsonProperty("effect_entries")
-    public void setEffectEntries(List<EffectEntry> effectEntries) {
+    public void setEffectEntries(List<VerboseEffect> effectEntries) {
         this.effectEntries = effectEntries;
     }
 
     @JsonProperty("effect_changes")
-    public List<EffectChange> getEffectChanges() {
+    public List<AbilityEffectChange> getEffectChanges() {
         return effectChanges;
     }
 
     @JsonProperty("effect_changes")
-    public void setEffectChanges(List<EffectChange> effectChanges) {
+    public void setEffectChanges(List<AbilityEffectChange> effectChanges) {
         this.effectChanges = effectChanges;
     }
 
     @JsonProperty("flavor_text_entries")
-    public List<FlavorTextEntry> getFlavorTextEntries() {
+    public List<AbilityFlavorText> getFlavorTextEntries() {
         return flavorTextEntries;
     }
 
     @JsonProperty("flavor_text_entries")
-    public void setFlavorTextEntries(List<FlavorTextEntry> flavorTextEntries) {
+    public void setFlavorTextEntries(List<AbilityFlavorText> flavorTextEntries) {
         this.flavorTextEntries = flavorTextEntries;
     }
 
     @JsonProperty("pokemon")
-    public List<Pokemon> getPokemon() {
-        return pokemons;
+    public List<AbilityPokemon> getPokemon() {
+        return pokemon;
     }
 
     @JsonProperty("pokemon")
-    public void setPokemon(List<Pokemon> pokemon) {
-        this.pokemons = pokemon;
+    public void setPokemon(List<AbilityPokemon> pokemon) {
+        this.pokemon = pokemon;
     }
 
     @JsonAnyGetter
@@ -184,4 +184,11 @@ public class Pokemon {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

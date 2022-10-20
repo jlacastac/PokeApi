@@ -3,6 +3,7 @@ package org.jlacastac.pokeapi.Api.Model;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.processing.Generated;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -14,16 +15,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "name",
-    "url"
+    "is_hidden",
+    "slot",
+    "pokemon"
 })
 @Generated("jsonschema2pojo")
-public class Move {
+public class AbilityPokemon {
 
-    @JsonProperty("name")
-    private String name;
-    @JsonProperty("url")
-    private String url;
+    @JsonProperty("is_hidden")
+    private Boolean isHidden;
+    @JsonProperty("slot")
+    private Integer slot;
+    @JsonProperty("pokemon")
+    private Ability pokemon;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -31,38 +35,50 @@ public class Move {
      * No args constructor for use in serialization
      * 
      */
-    public Move() {
+    public AbilityPokemon() {
     }
 
     /**
      * 
-     * @param name
-     * @param url
+     * @param pokemon
+     * @param slot
+     * @param isHidden
      */
-    public Move(String name, String url) {
+    public AbilityPokemon(Boolean isHidden, Integer slot, Ability pokemon) {
         super();
-        this.name = name;
-        this.url = url;
+        this.isHidden = isHidden;
+        this.slot = slot;
+        this.pokemon = pokemon;
     }
 
-    @JsonProperty("name")
-    public String getName() {
-        return name;
+    @JsonProperty("is_hidden")
+    public Boolean getIsHidden() {
+        return isHidden;
     }
 
-    @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
+    @JsonProperty("is_hidden")
+    public void setIsHidden(Boolean isHidden) {
+        this.isHidden = isHidden;
     }
 
-    @JsonProperty("url")
-    public String getUrl() {
-        return url;
+    @JsonProperty("slot")
+    public Integer getSlot() {
+        return slot;
     }
 
-    @JsonProperty("url")
-    public void setUrl(String url) {
-        this.url = url;
+    @JsonProperty("slot")
+    public void setSlot(Integer slot) {
+        this.slot = slot;
+    }
+
+    @JsonProperty("pokemon")
+    public Ability getPokemon() {
+        return pokemon;
+    }
+
+    @JsonProperty("pokemon")
+    public void setPokemon(Ability pokemon) {
+        this.pokemon = pokemon;
     }
 
     @JsonAnyGetter
