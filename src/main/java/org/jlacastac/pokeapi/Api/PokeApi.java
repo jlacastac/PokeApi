@@ -3,6 +3,7 @@ package org.jlacastac.pokeapi.Api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jlacastac.pokeapi.Api.Model.Ability;
+import org.jlacastac.pokeapi.Api.Model.Pokemon;
 
 import java.awt.*;
 
@@ -19,6 +20,12 @@ public class PokeApi {
 
         public PokeApi () {
             objectMapper = new ObjectMapper();
+        }
+
+        public Pokemon pokemon (String nombre) throws JsonProcessingException {
+            buildUri("/pokemon/" + nombre);
+
+            return objectMapper.readValue(get(uri).body().asString(), Pokemon.class);
         }
 
         public Ability getAbility (String nombre) throws JsonProcessingException {
